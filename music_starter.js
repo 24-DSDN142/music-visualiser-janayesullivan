@@ -12,8 +12,7 @@ var waveheight = 200; //movemet of waves up and down
 var waveheighttwo = 150 // second set of waves movement
 var waveheightthree = 100 // third set of waves movement
 
-let fishSize = 40
-let fishX = 245
+let fishX = 275
 let fishY = 275
 
 
@@ -21,6 +20,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 background(0, 107, 165)
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 //wave base 3
 fill(85, 226, 233) // base of sound wave colour
@@ -86,11 +86,87 @@ waveheight = waveheight + 0.4; //speed of height growth
 if(waveheight > 200){
 waveheight = 190;
 }
+////////////////////////////////////////////////////////////////////////////////////
+DrawFish(fishX,fishY);
 
+fishX = fishX + 0.4; //speed of height growth
+if(fishX > 100){
+fishX = 500;
+}
+
+function DrawFish (fishX, fishY) {
+
+  fill(255)
+  noStroke();
+  triangle(fishX-45, fishY-75, fishX-85, fishY-35, fishX-85, fishY-115) ///fish body
+  triangle(fishX-85, fishY-75, fishX-100, fishY-60, fishX-100, fishY-90) //fish tail 
+
+  fill(0)
+ellipse(fishX-55, fishY-75, 5, 5,)
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+//bubbles
+
+fill(230, 238, 242, 50)
+ellipse(275,300,10,10)
+ellipse(200,370,10,10)
+ellipse(100,200,10,10)
+ellipse(400,400,10,10)
+ellipse(500,380,10,10)
+ellipse(50,400,10,10)
+ellipse(80,500,10,10)
+ellipse(275,580,10,10)
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+//rocks
+
+fill(150)
+ellipse(230, 650,150,120)//left middle small
+ellipse(50, 650,230,200)//left far
+ellipse(500, 650,230,200)//right far
+ellipse(380, 650,130,100) //right middle small
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
