@@ -12,6 +12,9 @@ var waveheight = 440; //movemet of waves up and down
 var waveheighttwo = 540 // second set of waves movement
 var waveheightthree = 640 // third set of waves movement
 
+let fishSize = 40
+let fishX = 200
+let fishY = 200
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -23,6 +26,17 @@ noStroke();
 triangle (50, 50, 50, 50, 50, 50);
 
 
+//fish 
+DrawFish(fishX, fishY)
+
+
+function DrawFish (fishX, fishY) {
+fill(255)
+noStroke();
+triangle(fishX+45, fishY+75, fishX+85, fishY+35, fishX+85, fishY+115)
+triangle(fishX+85, fishY+75, fishX+100, fishX+60, fishX+100, fishY+90)
+
+}
 
 
 
