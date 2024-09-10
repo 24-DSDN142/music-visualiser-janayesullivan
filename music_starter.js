@@ -7,14 +7,21 @@ let firstRun = true
 let y = 120;
 
 
-var sizegrow = 90; //size
-var waveheight = 200; //movemet of waves up and down 
-var waveheighttwo = 150 // second set of waves movement
-var waveheightthree = 100 // third set of waves movement
-
+let sizegrow = 90; //size
+let waveheight = 200; //movemet of waves up and down 
+let waveheighttwo = 150 // second set of waves movement
+let waveheightthree = 100 // third set of waves movement
+let rockheight = 650
 
 let fishX = 275
 let fishY = 275
+
+let bubbleX = 200
+let bubbleY = 200
+
+let rockX = 200
+let rockY = 200
+
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -49,7 +56,7 @@ if(waveheightthree > 100){
 waveheightthree = 90;
 }
 
-waveheightthree =map(bass, 0, 100, 90, 120);
+waveheightthree =map(drum, 0, 100, 90, 120);
 
 
 
@@ -75,7 +82,7 @@ if(waveheighttwo > 150){
 waveheighttwo = 140;
 }
 
-waveheighttwo =map(bass, 0, 100, 140, 170);
+waveheighttwo =map(drum, 0, 100, 140, 170);
 
 
 //wave base 1
@@ -103,7 +110,7 @@ if(waveheight > 200){
 waveheight = 190;
 }
 
-waveheight =map(bass, 0, 100, 190, 220);
+waveheight =map(drum, 0, 100, 190, 220);
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -112,15 +119,17 @@ waveheight =map(bass, 0, 100, 190, 220);
 
   fill(255)
   noStroke();
-  triangle(fishX-45, fishY-75, fishX-85, fishY-35, fishX-85, fishY-115) ///fish body
-  triangle(fishX-85, fishY-75, fishX-100, fishY-60, fishX-100, fishY-90) //fish tail 
+  triangle(fishX, fishY, fishX-40, fishY+40, fishX-40, fishY-40) ///fish body
+  triangle(fishX - 40, fishY, fishX-55, fishY+15, fishX-55, fishY-15) //fish tail 
 
   fill(0)
-ellipse(fishX-55, fishY-75, 5, 5,)
+ellipse(fishX-10, fishY, 5, 5,)
 
-fishX = fishX + 0.8; //speed of height growth
-if(fishX > 550){
-fishX = 20;
+
+
+fishX = fishX + 0.5; //movement 
+if(fishX > 600){
+fishX = 0;
 }
 
 
@@ -131,14 +140,35 @@ fishX = 20;
 //bubbles
 
 fill(230, 238, 242, 50)
-ellipse(275,300,10,10)
-ellipse(200,370,10,10)
-ellipse(100,200,10,10)
-ellipse(400,400,10,10)
-ellipse(500,380,10,10)
-ellipse(50,400,10,10)
-ellipse(80,500,10,10)
-ellipse(275,580,10,10)
+ellipse(bubbleX+75,bubbleY+100,10,10)
+ellipse(bubbleX,bubbleY+170,10,10)
+ellipse(bubbleX-100,bubbleY,10,10)
+ellipse(bubbleX+200,bubbleY+200,10,10)
+ellipse(bubbleX+300,bubbleY+180,10,10)
+ellipse(bubbleX-150,bubbleY+200,10,10)
+ellipse(bubbleX+180,bubbleY+300,10,10)
+ellipse(bubbleX+75,bubbleY+380,10,10)
+
+
+bubbleX = bubbleX + 0.2; //movement of bubbles
+if(bubbleX > 550){
+bubbleX = -100;
+}
+
+ellipse(bubbleX-480,100,10,10)
+ellipse(bubbleX-300,310,10,10)
+ellipse(bubbleX-100,200,10,10)
+ellipse(bubbleX-180,460,10,10)
+ellipse(bubbleX-230,400,10,10)
+ellipse(bubbleX-290,390,10,10)
+ellipse(bubbleX-500,500,10,10)
+ellipse(bubbleX-310,580,10,10)
+
+bubbleX = bubbleX + 0.2; //movement of bubbles
+if(bubbleX > 550){
+bubbleX = -40;
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -146,12 +176,17 @@ ellipse(275,580,10,10)
 //rocks
 
 fill(150)
-ellipse(230, 650,150,120)//left middle small
-ellipse(50, 650,230,200)//left far
-ellipse(500, 650,230,200)//right far
-ellipse(380, 650,130,100) //right middle small
+ellipse(rockX-30, rockheight,150,120)//left middle small
+ellipse(rockX-150, rockheight,230,200)//left far
+ellipse(rockX+300, rockheight,230,200)//right far
+ellipse(rockX+180, rockheight,130,100) //right middle small
 
+rockX = rockX + 0.8; //movement of bubbles
+if(rockX > 600){
+rockX = -40;
+}
 
+rockheight =map(vocal, 0, 100, 550, 560);
 
 }
 
