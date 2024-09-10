@@ -22,6 +22,12 @@ let bubbleY = 200
 let rockX = 200
 let rockY = 200
 
+let crownX = 100
+let crownY = 100
+
+
+let crownW = 40
+let crownL = 15
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -187,6 +193,28 @@ rockX = -40;
 }
 
 rockheight =map(vocal, 0, 100, 550, 560);
+
+
+//crown
+DrawCrown(crownX+125,crownY+145);
+
+crownX = crownX + 0.5; //movement 
+if(crownX > width){
+crownX = 0;
+}
+
+
+function DrawCrown (crownX,crownY){
+
+fill(235, 207, 33)
+rect(crownX,crownY, 50, 10)//base
+triangle(crownX, crownY, crownX+10, crownY-10, crownX+20, crownY);//left
+triangle(crownX+15, crownY, crownX+25, crownY-10, crownX+35, crownY);//middle
+triangle(crownX+30, crownY, crownX+40, crownY-10, crownX+50, crownY);//right
+
+}
+
+
 
 }
 
