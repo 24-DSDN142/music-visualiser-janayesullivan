@@ -7,10 +7,11 @@ let firstRun = true
 let y = 120;
 
 
-var sizegrow = 90; //disco ball size
+var sizegrow = 90; //size
 var waveheight = 200; //movemet of waves up and down 
 var waveheighttwo = 150 // second set of waves movement
 var waveheightthree = 100 // third set of waves movement
+
 
 let fishX = 275
 let fishY = 275
@@ -18,6 +19,8 @@ let fishY = 275
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
 background(0, 107, 165)
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,10 +42,16 @@ ellipse(205, waveheightthree, 90, 70);//wave middle
 ellipse(115, waveheightthree, 90, 70);//wave one left
 ellipse(25, waveheightthree, 90, 70);//wave two left 
 ellipse(-65, waveheightthree, 90, 70);//far left
+
+
 waveheightthree = waveheightthree + 0.4; //speed of height growth
 if(waveheightthree > 100){
 waveheightthree = 90;
 }
+
+waveheightthree =map(bass, 0, 100, 90, 120);
+
+
 
 
 //wave base 2
@@ -66,7 +75,12 @@ if(waveheighttwo > 150){
 waveheighttwo = 140;
 }
 
+waveheighttwo =map(bass, 0, 100, 140, 170);
+
+
 //wave base 1
+
+
 fill(4, 150, 199) // base of sound wave colour
 noStroke(); 
 rect(0,150,550,50);//base of sound wave
@@ -82,19 +96,19 @@ ellipse(205, waveheight, 90, 70);//wave middle
 ellipse(115, waveheight, 90, 70);//wave one left
 ellipse(25, waveheight, 90, 70);//wave two left 
 ellipse(-65, waveheight, 90, 70);//far left
+
+
 waveheight = waveheight + 0.4; //speed of height growth
 if(waveheight > 200){
 waveheight = 190;
 }
+
+waveheight =map(bass, 0, 100, 190, 220);
+
+
 ////////////////////////////////////////////////////////////////////////////////////
-DrawFish(fishX,fishY);
 
-fishX = fishX + 0.4; //speed of height growth
-if(fishX > 100){
-fishX = 500;
-}
 
-function DrawFish (fishX, fishY) {
 
   fill(255)
   noStroke();
@@ -104,7 +118,13 @@ function DrawFish (fishX, fishY) {
   fill(0)
 ellipse(fishX-55, fishY-75, 5, 5,)
 
+fishX = fishX + 0.8; //speed of height growth
+if(fishX > 550){
+fishX = 20;
 }
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 
