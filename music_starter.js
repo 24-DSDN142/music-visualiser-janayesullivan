@@ -12,6 +12,7 @@ let waveheight = 200; //movemet of waves up and down
 let waveheighttwo = 150 // second set of waves movement
 let waveheightthree = 100 // third set of waves movement
 let rockheight = 650
+let rockwidth = 200
 
 let fishX = 275
 let fishY = 275
@@ -19,18 +20,21 @@ let fishY = 275
 let bubbleX = 200
 let bubbleY = 200
 
-let rockX = 200
-let rockY = 200
+let rockX = 0
+let rockY = 0
 
 let crownX = 100
 let crownY = 100
+
+let bubblesizeW = 10
+let bubblesizeL = 10
 
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let color1 = color(140, 207, 230); // Dark Blue
   let color2 = color(4, 150, 199); // Light Blue
-  let color3 = color(167, 223, 235); // Aqua Blue
+  let color3 = color(134, 203, 217); // Aqua Blue
 
   function getBackgroundColor(vocal) {
     let color;
@@ -146,7 +150,7 @@ ellipse(fishX-10, fishY, 5, 5,)
 
 
 
-fishX = fishX + 0.5; //movement 
+fishX = fishX + 0.6; //movement 
 if(fishX > 600){
 fishX = 0;
 }
@@ -158,15 +162,15 @@ fishX = 0;
 
 //bubbles
 
-fill(230, 238, 242, 50)
-ellipse(bubbleX+75,bubbleY+100,10,10)
-ellipse(bubbleX,bubbleY+170,10,10)
-ellipse(bubbleX-100,bubbleY,10,10)
-ellipse(bubbleX+200,bubbleY+200,10,10)
-ellipse(bubbleX+300,bubbleY+180,10,10)
-ellipse(bubbleX-150,bubbleY+200,10,10)
-ellipse(bubbleX+180,bubbleY+300,10,10)
-ellipse(bubbleX+75,bubbleY+380,10,10)
+fill(230, 238, 242, 80)
+ellipse(bubbleX+75,bubbleY+100,bubblesizeW,bubblesizeL)
+ellipse(bubbleX,bubbleY+170,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-100,bubbleY,bubblesizeW,bubblesizeL)
+ellipse(bubbleX+200,bubbleY+200,bubblesizeW,bubblesizeL)
+ellipse(bubbleX+300,bubbleY+180,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-150,bubbleY+200,bubblesizeW,bubblesizeL)
+ellipse(bubbleX+180,bubbleY+300,bubblesizeW,bubblesizeL)
+ellipse(bubbleX+75,bubbleY+380,bubblesizeW,bubblesizeL)
 
 
 bubbleX = bubbleX + 0.2; //movement of bubbles
@@ -174,19 +178,24 @@ if(bubbleX > 550){
 bubbleX = -100;
 }
 
-ellipse(bubbleX-480,100,10,10)
-ellipse(bubbleX-300,310,10,10)
-ellipse(bubbleX-100,200,10,10)
-ellipse(bubbleX-180,460,10,10)
-ellipse(bubbleX-230,400,10,10)
-ellipse(bubbleX-290,390,10,10)
-ellipse(bubbleX-500,500,10,10)
-ellipse(bubbleX-310,580,10,10)
 
-bubbleX = bubbleX + 0.2; //movement of bubbles
-if(bubbleX > 550){
-bubbleX = -40;
+
+ellipse(bubbleX-480,100,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-300,310,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-100,200,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-180,460,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-230,400,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-290,390,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-500,500,bubblesizeW,bubblesizeL)
+ellipse(bubbleX-310,580,bubblesizeW,bubblesizeL)
+
+bubbleX = bubbleX + 0.5; //movement of bubbles
+if(bubbleX > 800){
+bubbleX = -500;
 }
+
+bubblesizeW =map(bass, 50, 100, 10, 30);
+bubblesizeL =map(bass, 50, 100, 10, 30);
 
 //crown
 DrawCrown(crownX,crownY);
@@ -195,6 +204,7 @@ crownY = crownY + 0.15; //movement of bubbles
 if(crownY > 600){
 crownY = -40;
 }
+
 
 function DrawCrown (crownX,crownY){
 
@@ -207,25 +217,25 @@ triangle(crownX+15, crownY, crownX+25, crownY-10, crownX+35, crownY);//middle
 triangle(crownX+30, crownY, crownX+40, crownY-10, crownX+50, crownY);//right
 
 
-
+crownY =map(words, 0, 50, 10, 30);
 
 ////////////////////////////////////////////////////////////////////////////////
 
 //rocks
 
 fill(150)
-ellipse(rockX-30, rockheight,150,120)//left middle small
-ellipse(rockX-150, rockheight,230,200)//left far
-ellipse(rockX+300, rockheight,230,200)//right far
-ellipse(rockX+180, rockheight,130,100) //right middle small
+ellipse(rockX-30, rockheight,rockwidth-50,120)//left middle small
+ellipse(rockX-150, rockheight,rockwidth+30,200)//left far
+ellipse(rockX+300, rockheight,rockwidth+30,200)//right far
+ellipse(rockX+180, rockheight,rockwidth-70,100) //right middle small
 
-rockX = rockX + 0.8; //movement of bubbles
+rockX = rockX + 0.3; //movement of bubbles
 if(rockX > 800){
-rockX = -40;
+rockX = -rockwidth;
 }
 
-rockheight =map(vocal, 0, 100, 550, 560);
-
+rockheight =map(drum, 0, 100, 540, 550);
+rockwidth =map(counter, 0, 100, 250, 300);
 
 
 
