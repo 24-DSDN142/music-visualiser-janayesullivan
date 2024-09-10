@@ -26,8 +26,8 @@ let rockY = 0
 let crownX = 100
 let crownY = 100
 
-let bubblesizeW = 10
-let bubblesizeL = 10
+let bubblesizeW = 9
+let bubblesizeL = 9
 
 
 
@@ -49,14 +49,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   }
 
   let bgColor = getBackgroundColor(vocal);
-  let circleColor = getBackgroundColor(vocal); // This will be used for wave circles
+  let circleColor = getBackgroundColor(vocal); // used for wave circles to match 
 
   background(bgColor);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 //wave base 3
 fill(85, 226, 233) // base of sound wave colour
-noStroke(); 
+noStroke(); //only fill
 rect(0,0,550,100);//base of sound wave
 
 
@@ -74,11 +74,11 @@ ellipse(-65, waveheightthree, 90, 70);//far left
 
 
 waveheightthree = waveheightthree + 0.4; //speed of height growth
-if(waveheightthree > 100){
-waveheightthree = 90;
+if(waveheightthree > 100){//over then reset ...
+waveheightthree = 90;//reset
 }
 
-waveheightthree =map(drum, 0, 100, 90, 120);
+waveheightthree =map(drum, 0, 100, 90, 120); //waves to music 
 
 
 
@@ -89,7 +89,7 @@ rect(0,98,550,100);//base of sound wave
 
 //wave set two
 //waves circles light blue circles
-fill(4, 150, 199) // colour of hidden wave circles (must match background)
+fill(4, 150, 199) 
 noStroke ();
 ellipse(520, waveheighttwo, 90, 70);//wave far right
 ellipse(430, waveheighttwo, 90, 70);//wave two right
@@ -104,7 +104,7 @@ if(waveheighttwo > 150){
 waveheighttwo = 140;
 }
 
-waveheighttwo =map(drum, 0, 100, 140, 170);
+waveheighttwo =map(drum, 0, 100, 140, 170); //waves to music
 
   
 //wave base 1
@@ -114,9 +114,9 @@ waveheighttwo =map(drum, 0, 100, 140, 170);
 fill(4,150,199)// Base of sound wave color
 noStroke(); 
 rect(0,150,550,50);//base of sound wave
-//wave set one background blue circles
+
 //waves circles 
-fill(circleColor) // colour of hidden wave circles (must match background)
+fill(circleColor) // colour of wave circles must match background (circle color does this as seen mentioned above)
 noStroke ();
 ellipse(565, waveheight, 90, 70);//wave far right
 ellipse(475, waveheight, 90, 70);//wave three right
@@ -133,7 +133,7 @@ if(waveheight > 200){
 waveheight = 190;
 }
 
-waveheight =map(drum, 0, 100, 190, 220);
+waveheight =map(drum, 0, 100, 190, 220); //wave to music 
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -146,7 +146,7 @@ waveheight =map(drum, 0, 100, 190, 220);
   triangle(fishX - 40, fishY, fishX-55, fishY+15, fishX-55, fishY-15) //fish tail 
 
   fill(0)
-ellipse(fishX-10, fishY, 5, 5,)
+ellipse(fishX-10, fishY, 5, 5,) //eye
 
 
 
@@ -194,13 +194,13 @@ if(bubbleX > 800){
 bubbleX = -500;
 }
 
-bubblesizeW =map(bass, 50, 100, 10, 30);
-bubblesizeL =map(bass, 50, 100, 10, 30);
+bubblesizeW =map(bass, 50, 100, 10, 30); //bubbles size to music
+bubblesizeL =map(bass, 50, 100, 10, 30); //bubble to music 
 
 //crown
-DrawCrown(crownX,crownY);
+DrawCrown(crownX,crownY); //change crown X nd Y
 
-crownY = crownY + 0.15; //movement of bubbles
+crownY = crownY + 0.15; //movement of crown
 if(crownY > 600){
 crownY = -40;
 }
@@ -217,7 +217,7 @@ triangle(crownX+15, crownY, crownX+25, crownY-10, crownX+35, crownY);//middle
 triangle(crownX+30, crownY, crownX+40, crownY-10, crownX+50, crownY);//right
 
 
-crownY =map(words, 0, 50, 10, 30);
+crownY =map(words, 0, 50, 10, 30); //crown to music 
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -229,13 +229,13 @@ ellipse(rockX-150, rockheight,rockwidth+30,200)//left far
 ellipse(rockX+300, rockheight,rockwidth+30,200)//right far
 ellipse(rockX+180, rockheight,rockwidth-70,100) //right middle small
 
-rockX = rockX + 0.3; //movement of bubbles
+rockX = rockX + 0.3; //movement of rock
 if(rockX > 800){
 rockX = -rockwidth;
 }
 
-rockheight =map(drum, 0, 100, 540, 550);
-rockwidth =map(counter, 0, 100, 250, 300);
+rockheight =map(drum, 0, 100, 540, 550); //rock to music
+rockwidth =map(counter, 0, 100, 250, 300);//rock to music 
 
 
 
